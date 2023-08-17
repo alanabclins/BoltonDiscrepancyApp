@@ -50,7 +50,6 @@ class Bolton (App):
         self.window.add_widget(self.result_label)
         self.window.add_widget(self.result_anterior_label)
         box.add_widget(self.window)
-
         return box
     #function
     def calculate_bolton_discrepancy(self, instance):
