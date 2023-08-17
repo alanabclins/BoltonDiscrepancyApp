@@ -7,7 +7,6 @@ from kivy.uix. textinput import TextInput
 from kivy.graphics import Color, Rectangle
 from kivy.uix.boxlayout import BoxLayout
 
-
 class Bolton (App):
     def build (self):
         box = BoxLayout()
@@ -40,8 +39,6 @@ class Bolton (App):
         self.window.add_widget(self.pergunta_md_anterior_inferior)
         self.md_anterior_inferior = TextInput(multiline=False,background_normal='', background_color=text_input_color)
         self.window.add_widget(self.md_anterior_inferior)
-
-        
 
         #calculate
         self.window.add_widget(Label(height=5))
@@ -87,14 +84,14 @@ class Bolton (App):
                 #calculate canines, dont consider yet
             if 1+1==2:
                 bolton_discrepancy= (md_anterior_inferior_value/md_anterior_superior_value)*100;  
-                if( 89.39 <= bolton_discrepancy <= 93.21):
-                    self.result_anterior_label.text = "Paciente não apresenta discrepância de Bolton anterior"
+                if( 75.55  <= bolton_discrepancy <= 78.85):
+                    self.result_anterior_label.text = "Paciente não apresenta discrepância de Bolton Anterior"
                 else:
-                    x=12*md_anterior_superior_value-(12*md_anterior_inferior_value/0.8939);
-                    y= (12*md_anterior_superior_value/0.8939) - md_anterior_inferior_value; 
-                    z=12*md_anterior_superior_value-(12*md_anterior_inferior_value/0.9321)
-                    w=(12*md_anterior_superior_value/0.0321) - md_anterior_inferior_value;
-                    if(bolton_discrepancy<89.39):  
+                    x=12*md_anterior_superior_value-(12*md_anterior_inferior_value/0.7555);
+                    y= (12*md_anterior_superior_value/0.7555) - md_anterior_inferior_value; 
+                    z=12*md_anterior_superior_value-(12*md_anterior_inferior_value/0.7885)
+                    w=(12*md_anterior_superior_value/0.7885) - md_anterior_inferior_value;
+                    if(bolton_discrepancy<75.55):  
                         self.result_anterior_label.text = f"O paciente apresenta discrepância de Bolton anterior, podendo ser interpretada como excesso de {x:.2f}mm no arco superior ou deficiência de {y:.2f}mm no arco inferior."
                     else:
                         self.result_anterior_label.text = f"O paciente apresenta discrepância de Bolton anterior, podendo ser interpretada como deficiência de {z:.2f}mm no arco superior ou excesso de {w:.2f}mm no arco inferior."
