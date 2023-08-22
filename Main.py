@@ -22,8 +22,7 @@ class Bolton (App):
         text_input_color = (0.87, 0.93, 0.93, 1)
         self.pergunta_md_superior = Label(text="Medida mésio-distal dos 12 dentes superiores", font_size=20, color=label_color)
         self.window.add_widget(self.pergunta_md_superior)
-        self.md_superior=TextInput(multiline=False,background_normal='', background_color=text_input_color,halign='center')
-        self.md_superior.halign= 'center'
+        self.md_superior=TextInput(multiline=False, background_normal='',size_hint_x=None, width=200, size_hint_y=None, height=50,background_color=text_input_color,halign='center')
         self.window.add_widget(self.md_superior)
 
         self.pergunta_md_inferior = Label(text="Medida mésio-distal dos 12 dentes inferiores", font_size=20, color=label_color)
@@ -70,8 +69,8 @@ class Bolton (App):
                     
                     x=md_superior_value-(md_inferior_value/0.913);
                     y= (md_superior_value*0.913) - md_inferior_value; 
-                    z=md_superior_value-(md_inferior_value/0.772)
-                    w=(md_superior_value*0.772) - md_inferior_value;
+                    z=(md_inferior_value/0.913) -md_superior_value
+                    w= md_inferior_value - (md_superior_value*0.913) ;
                     if(bolton_discrepancy<89.39):  
                         self.result_label.text = f"O paciente apresenta discrepância de Bolton total, podendo ser interpretada como excesso de {x:.2f}mm no arco superior ou deficiência de {y:.2f}mm no arco inferior."
                     else:
@@ -82,9 +81,10 @@ class Bolton (App):
                     self.result_anterior_label.text = "Paciente não apresenta discrepância de Bolton Anterior"
                 else:
                     x=md_anterior_superior_value-(md_anterior_inferior_value/0.772);
-                    y= (md_anterior_superior_value/0.772) - md_anterior_inferior_value; 
-                    z=md_anterior_superior_value-(md_anterior_inferior_value/0.772)
-                    w=(md_anterior_superior_value/0.772) - md_anterior_inferior_value;
+                    y= (md_anterior_superior_value*0.772) - md_anterior_inferior_value; 
+                    z=(md_anterior_inferior_value/0.772) -md_anterior_superior_value
+                    w= md_anterior_inferior_value - (md_anterior_superior_value*0.772) ;
+                    
                     if(bolton_discrepancy<75.55):  
                         self.result_anterior_label.text = f"O paciente apresenta discrepância de Bolton anterior, podendo ser interpretada como excesso de {x:.2f}mm no arco superior ou deficiência de {y:.2f}mm no arco inferior."
                     else:
