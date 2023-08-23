@@ -45,13 +45,12 @@ class Bolton (App):
         self.window.add_widget(self.md_anterior_inferior)
 
         #calculate
-        
-        self.window.add_widget(Label(height=1, font_size=15, text=''))
-        self.calculate = Button(text="Calcular", font_size=25, background_color=(0.337, 0.784, 0.804, 1))
+        self.window.add_widget( Label(text=" ", font_size=15, color=label_color))
+        self.calculate = Button(text="Calcular", font_size=25, size_hint_y=None, height=42,background_color=(0.337, 0.784, 0.804, 1))
         self.window.add_widget(self.calculate)
         self.calculate.bind(on_press=self.calculate_bolton_discrepancy)
         self.result_label = Label(text="", font_size=20,color=(0.9, 0.5, 0.2, 1), )
-        self.result_anterior_label = Label(text="", color=(0.9, 0.5, 0.2, 1), width='20')
+        self.result_anterior_label = Label(text="", color=(0.9, 0.5, 0.2, 1), font_size=20)
         self.window.add_widget(self.result_label)
         self.window.add_widget(self.result_anterior_label)
         
